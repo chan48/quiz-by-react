@@ -8,21 +8,17 @@ const Results = ({ userAnswers, score, restartQuiz }) => {
   const threeTries = triesTotal[3] && <div><strong>{triesTotal[3]}</strong> on the third try.</div>;
   const fourTries = triesTotal[4] && <div><strong>{triesTotal[4]}</strong> on the fourth try.</div>;
   return (
-  pug`
-  div(classname='results-container')
-  h2 Quiz Results
-  div You answered...
-  |       {oneTries}
-  |       {twoTries}
-  |       {threeTries}
-  |       {fourTries}
-  div(classname='results-total')
-    | Your Total Score is 
-    strong {score}
-    | .
-  a(onclick='{restartQuiz}') Restart Quiz
-`
-);
+    <div className="results-container">
+      <h2>Quiz Results</h2>
+      <div>You answered...</div>
+      {oneTries}
+      {twoTries}
+      {threeTries}
+      {fourTries}
+      <div className="results-total">Your Total Score is <strong>{score}</strong>.</div>
+      <a onClick={restartQuiz}>Restart Quiz</a>
+    </div>
+  );
 }
 
 Results.propTypes = {
